@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.core.notes.NotesController">
+   <children>
+      <JFXTabPane layoutX="166.0" layoutY="108.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/certains-tabs-style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab style="-fx-pref-width: 580;" text="NOTE">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextArea fx:id="txtFieldNote" layoutX="14.0" layoutY="31.0" onKeyPressed="#countCharacters" prefHeight="186.0" prefWidth="570.0" promptText="Write new note here...">
+                           <font>
+                              <Font size="20.0" />
+                           </font></JFXTextArea>
+                        <Label layoutX="14.0" layoutY="232.0" text="Max. 200 chars" />
+                        <Label fx:id="lblCounterChars" layoutX="528.0" layoutY="232.0" text="0" />
+                        <Label layoutX="556.0" layoutY="232.0" text="/ 200" />
+                        <JFXButton layoutX="324.0" layoutY="292.0" onAction="#saveNote" prefHeight="38.0" prefWidth="100.0" stylesheets="@../css/theme.css" text="Save note" />
+                        <JFXButton layoutX="223.0" layoutY="292.0" onAction="#discard" prefHeight="38.0" prefWidth="75.0" stylesheets="@../css/theme.css" text="Discard" />
+                        <JFXButton layoutX="14.0" layoutY="292.0" onAction="#deleteNote" prefHeight="38.0" prefWidth="102.0" stylesheets="@../css/theme.css" text="Delete note" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

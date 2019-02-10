@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="753.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <Menu mnemonicParsing="false" text="Import...">
+                     <items>
+                        <Menu mnemonicParsing="false" text="from a .json file">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#launchImportJson" text="data for individuals table" />
+                              <MenuItem mnemonicParsing="false" onAction="#launchImportJson" text="data for companies table" />
+                          </items>
+                        </Menu>
+                     </items></Menu>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#openPreferences" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#confirmExit" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#aboutGoldenbag" text="About Goldenbag" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <JFXTabPane fx:id="tabbedPane" layoutX="63.0" layoutY="78.0" prefHeight="374.4" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <tabs>
+                  <Tab text="Individuals">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tableIndividuals" layoutX="14.0" layoutY="80.0" onKeyPressed="#multiRowSelection" onMouseClicked="#doubleClickOnRow" prefHeight="570.0" prefWidth="1400.0" stylesheets="@../css/theme.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+                                <columns>
+                                  <TableColumn fx:id="idIndividuals" prefWidth="205.00001525878906" text="IDENTIFICATION NUMBER" />
+                                  <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="235.00003051757812" text="FIRST NAME" />
+                                    <TableColumn fx:id="lastName" prefWidth="261.0" text="LAST NAME" />
+                                    <TableColumn fx:id="emailAdressIndividuals" minWidth="0.0" prefWidth="259.0" text="EMAIL ADDRESS" />
+                                    <TableColumn fx:id="dateLicenseValidInd" minWidth="0.0" prefWidth="219.0" text="DATE" />
+                                    <TableColumn fx:id="amountIndividuals" prefWidth="300.0" style="-fx-aligment: left;" text="AMOUNT" />
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#copyEmailAddress" text="Copy email address..." />
+                                          <SeparatorMenuItem mnemonicParsing="false" />
+                                          <MenuItem mnemonicParsing="false" onAction="#refreshTable" text="Refresh table..." />
+                                          <SeparatorMenuItem mnemonicParsing="false" />
+                                          <MenuItem mnemonicParsing="false" onAction="#editCell" text="Edit cell..." />
+                                          <MenuItem mnemonicParsing="false" onAction="#launchDeleteClient" text="Delete cell(s)..." />
+                                          <SeparatorMenuItem mnemonicParsing="false" />
+                                          <Menu fx:id="mnExportInd" mnemonicParsing="false" text="Export...">
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" onAction="#launchExportToJson" text="as .json file" />
+                                                <MenuItem mnemonicParsing="false" onAction="#launchExportToCsv" text="as .csv file" />
+                                            </items>
+                                          </Menu>
+                                          <SeparatorMenuItem mnemonicParsing="false" />
+                                          <MenuItem mnemonicParsing="false" onAction="#openNote" text="Open note..." />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <JFXButton layoutX="14.0" layoutY="14.0" onAction="#newClient" prefHeight="42.0" prefWidth="66.0" stylesheets="@../css/theme.css" text="+" />
+                              <JFXButton layoutX="1036.0" layoutY="14.0" onAction="#searchClient" prefHeight="42.0" prefWidth="76.0" stylesheets="@../css/theme.css" text="Search" AnchorPane.rightAnchor="288.0" />
+                              <JFXButton layoutX="958.0" layoutY="14.0" onAction="#refreshTable" prefHeight="42.0" prefWidth="80.0" stylesheets="@../css/theme.css" text="Refresh" AnchorPane.rightAnchor="376.0" />
+                              <JFXTextField fx:id="txtSearchIndividual" layoutX="1139.0" layoutY="15.0" onAction="#searchClient" prefHeight="34.0" prefWidth="246.0" promptText="Data to search..." AnchorPane.rightAnchor="14.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <Label layoutX="14.0" layoutY="657.0" text="Last refresh:" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="14.0" />
+                              <Label fx:id="lblRefreshTimeInd" layoutX="110.0" layoutY="657.0" prefHeight="18.0" prefWidth="109.0" text="-" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="110.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Companies">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tableCompanies" layoutX="14.0" layoutY="67.0" onKeyPressed="#multiRowSelection" onMouseClicked="#doubleClickOnRow" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/theme.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+                                <columns>
+                                  <TableColumn fx:id="idCompany" prefWidth="214.0" text="IDENTIFICATION NUMBER" />
+                                  <TableColumn fx:id="companyName" minWidth="0.0" prefWidth="437.0" text="COMPANY NAME" />
+                                    <TableColumn fx:id="emailAddressCompany" minWidth="0.0" prefWidth="296.0" text="EMAIL ADDRESS" />
+                                    <TableColumn fx:id="dateLicenseValidCompany" minWidth="0.0" prefWidth="252.0" text="DATE" />
+                                    <TableColumn fx:id="amountCompanies" prefWidth="275.0" text="AMOUNT" />
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#copyEmailAddress" text="Copy email address..." />
+                                          <SeparatorMenuItem mnemonicParsing="false" />
+                                          <MenuItem mnemonicParsing="false" onAction="#refreshTable" text="Refresh table..." />
+                                          <SeparatorMenuItem mnemonicParsing="false" />
+                                          <MenuItem mnemonicParsing="false" onAction="#editCell" text="Edit cell..." />
+                                          <MenuItem mnemonicParsing="false" onAction="#launchDeleteClient" text="Delete cell(s)..." />
+                                          <SeparatorMenuItem mnemonicParsing="false" />
+                                          <Menu fx:id="mnExportComp" mnemonicParsing="false" text="Export...">
+                                             <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#launchExportToJson" text="as .json file" />
+                                                <MenuItem mnemonicParsing="false" onAction="#launchExportToCsv" text="as .csv file" />
+                                             </items>
+                                          </Menu>
+                                          <SeparatorMenuItem mnemonicParsing="false" />
+                                          <MenuItem mnemonicParsing="false" onAction="#openNote" text="Open note..." />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <JFXButton layoutX="14.0" layoutY="14.0" onAction="#newCompany" prefHeight="42.0" prefWidth="66.0" stylesheets="@../css/theme.css" text="+" />
+                              <JFXButton layoutX="1036.0" layoutY="14.0" onAction="#searchClient" prefHeight="42.0" prefWidth="84.0" stylesheets="@../css/theme.css" text="Search" AnchorPane.rightAnchor="280.0" />
+                              <JFXButton layoutX="958.0" layoutY="14.0" onAction="#refreshTable" prefHeight="42.0" prefWidth="83.0" stylesheets="@../css/theme.css" text="Refresh" AnchorPane.rightAnchor="376.0" />
+                              <JFXTextField fx:id="txtSearchCompany" layoutX="1139.0" layoutY="15.0" onAction="#searchClient" prefHeight="34.0" prefWidth="246.0" promptText="Data to search..." AnchorPane.rightAnchor="14.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <Label layoutX="14.0" layoutY="659.0" text="Last refresh:" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="14.0" />
+                              <Label fx:id="lblRefreshTimeComp" layoutX="113.0" layoutY="659.0" prefHeight="18.0" prefWidth="109.0" text="-" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="110.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

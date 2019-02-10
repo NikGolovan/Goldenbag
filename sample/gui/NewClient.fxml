@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.core.indviduals.NewClientController">
+   <children>
+      <JFXTabPane layoutX="105.0" layoutY="90.0" prefHeight="479.0" prefWidth="375.0" stylesheets="@../css/certains-tabs-style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab style="-fx-pref-width: 365;" text="NEW CLIENT">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="txtFirstname" layoutX="14.0" layoutY="52.0" prefHeight="26.0" prefWidth="346.0" promptText="First name">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtLastname" layoutX="14.0" layoutY="119.0" prefHeight="26.0" prefWidth="346.0" promptText="Last name">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtEmailAddressClient" layoutX="14.0" layoutY="202.0" prefHeight="26.0" prefWidth="346.0" promptText="Email address">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXDatePicker fx:id="datePickerNewClient" defaultColor="#00bcd4" layoutX="14.0" layoutY="273.0" />
+                        <JFXButton layoutX="98.0" layoutY="436.0" onAction="#discard" prefHeight="38.0" prefWidth="75.0" stylesheets="@../css/theme.css" text="Discard" />
+                        <JFXButton layoutX="196.0" layoutY="436.0" onAction="#saveInformation" prefHeight="38.0" prefWidth="82.0" stylesheets="@../css/theme.css" text="Confirm" />
+                        <JFXTextField fx:id="txtAmountNewClient" layoutX="13.0" layoutY="339.0" onMouseClicked="#focusAll" prefHeight="37.0" prefWidth="171.0" promptText="Amount">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <Label fx:id="lblValueSignClient" layoutX="188.0" layoutY="347.0" prefHeight="34.0" prefWidth="51.0" text="EUR" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

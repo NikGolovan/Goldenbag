@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.core.preferences.PreferencesController">
+    <children>
+      <JFXTabPane layoutX="53.0" layoutY="86.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="General">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Region layoutX="13.0" layoutY="31.0" prefHeight="61.0" prefWidth="574.0" styleClass="custom-dashed-border" stylesheets="@../css/theme.css" />
+                        <Label layoutX="13.0" layoutY="14.0" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: #00bcd4; -fx-font-weight: bold;" text=" Timezone and date" textFill="WHITE" />
+                        <JFXButton layoutX="20.0" layoutY="437.0" onAction="#setToDefault" prefHeight="31.0" prefWidth="149.0" stylesheets="@../css/theme.css" text="Reset to default" />
+                        <JFXButton layoutX="224.0" layoutY="430.0" onAction="#discard" prefHeight="38.0" prefWidth="80.0" stylesheets="@../css/theme.css" text="Discard" />
+                        <JFXButton layoutX="323.0" layoutY="430.0" onAction="#validate" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/theme.css" text="Validate" />
+                        <ComboBox fx:id="dateRepresentation" layoutX="166.0" layoutY="49.0" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: grey;" />
+                        <Label layoutX="20.0" layoutY="54.0" text="Date representation:" />
+                        <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="331.0" layoutY="55.0" onMouseClicked="#aboutDate" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/question.png" />
+                           </image>
+                        </ImageView>
+                        <Region layoutX="10.0" layoutY="129.0" prefHeight="61.0" prefWidth="574.0" styleClass="custom-dashed-border" stylesheets="@../css/theme.css" />
+                        <Label layoutX="10.0" layoutY="109.0" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: #00bcd4; -fx-font-weight: bold;" text="          Program" textFill="WHITE" />
+                        <CheckBox fx:id="askBeforeClosing" layoutX="20.0" layoutY="149.0" mnemonicParsing="false" text="Do not ask before closing program" />
+                        <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="331.0" layoutY="151.0" onMouseClicked="#aboutProgram" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/question.png" />
+                           </image>
+                        </ImageView>
+                        <Region layoutX="10.0" layoutY="220.0" prefHeight="161.0" prefWidth="574.0" styleClass="custom-dashed-border" stylesheets="@../css/theme.css" />
+                        <Label layoutX="10.0" layoutY="202.0" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: #00bcd4; -fx-font-weight: bold;" text="          Currency" textFill="WHITE" />
+                        <ComboBox fx:id="currencyUsed" layoutX="150.0" layoutY="234.0" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: white; -fx-border-color: grey;" />
+                        <Label layoutX="20.0" layoutY="240.0" text="Used currencty:" />
+                        <Label layoutX="240.0" layoutY="240.0" />
+                        <Label layoutX="20.0" layoutY="286.0" text="Set default price for individuals as" />
+                        <JFXTextField fx:id="txtPriceIndividuals" layoutX="257.0" layoutY="267.0" onMouseClicked="#focusAll" prefHeight="39.0" prefWidth="103.0" text="0.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXTextField>
+                        <Label layoutX="20.0" layoutY="337.0" text="Set default price for companies as" />
+                        <JFXTextField fx:id="txtPriceCompanies" layoutX="257.0" layoutY="318.0" onMouseClicked="#focusAll" prefHeight="39.0" prefWidth="103.0" text="0.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXTextField>
+                        <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="279.0" layoutY="243.0" onMouseClicked="#aboutUsedCurrency" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/question.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="390.0" layoutY="318.0" onMouseClicked="#aboutDefaultPrice" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/question.png" />
+                           </image>
+                        </ImageView>
+                        <StackPane fx:id="stackPaneGeneral" layoutX="78.0" layoutY="36.0" prefHeight="363.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Import/Export">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <StackPane fx:id="stackPaneImportExport" layoutX="163.0" layoutY="92.0" prefHeight="363.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <JFXButton layoutX="20.0" layoutY="437.0" onAction="#setToDefault" prefHeight="31.0" prefWidth="141.0" stylesheets="@../css/theme.css" text="Reset to default" />
+                        <JFXButton layoutX="323.0" layoutY="430.0" onAction="#validate" prefHeight="38.0" prefWidth="83.0" stylesheets="@../css/theme.css" text="Validate" />
+                        <JFXButton layoutX="224.0" layoutY="430.0" onAction="#discard" prefHeight="38.0" prefWidth="82.0" stylesheets="@../css/theme.css" text="Discard" />
+                        <Region layoutX="13.0" layoutY="31.0" prefHeight="61.0" prefWidth="574.0" styleClass="custom-dashed-border" stylesheets="@../css/theme.css" />
+                        <Label layoutX="13.0" layoutY="14.0" prefHeight="22.0" prefWidth="115.0" style="-fx-background-color: #00bcd4; -fx-font-weight: bold;" text="   JSON Import" textFill="WHITE" />
+                        <JFXTextField fx:id="txtJsonDatasetName" layoutX="177.0" layoutY="38.0" onMouseClicked="#focusAll" prefHeight="34.0" prefWidth="246.0" text="Records">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXTextField>
+                        <Label layoutX="27.0" layoutY="51.0" text="JSON DataSet name:" />
+                        <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="445.0" layoutY="53.0" onMouseClicked="#aboutJsonDataset" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/question.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Data">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Region layoutX="13.0" layoutY="31.0" prefHeight="61.0" prefWidth="574.0" styleClass="custom-dashed-border" stylesheets="@../css/theme.css" />
+                        <Label layoutX="13.0" layoutY="14.0" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: #00bcd4; -fx-font-weight: bold;" text="    Upload settings" textFill="WHITE" />
+                        <JFXButton layoutX="20.0" layoutY="437.0" onAction="#setToDefault" prefHeight="31.0" prefWidth="149.0" stylesheets="@../css/theme.css" text="Reset to default" />
+                        <JFXButton layoutX="224.0" layoutY="430.0" onAction="#discard" prefHeight="38.0" prefWidth="80.0" stylesheets="@../css/theme.css" text="Discard" />
+                        <JFXButton layoutX="323.0" layoutY="430.0" onAction="#validate" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/theme.css" text="Validate" />
+                        <Region layoutX="10.0" layoutY="129.0" prefHeight="61.0" prefWidth="574.0" styleClass="custom-dashed-border-danger-zone" stylesheets="@../css/theme.css" />
+                        <JFXButton layoutX="237.0" layoutY="141.0" onAction="#deleteAllData" prefHeight="38.0" prefWidth="126.0" stylesheets="@../css/theme.css" text="Delete all data" />
+                        <Label layoutX="10.0" layoutY="109.0" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: ef3434; -fx-font-weight: bold;" text="      Danger Zone" textFill="WHITE" />
+                        <Label layoutX="240.0" layoutY="240.0" />
+                        <StackPane fx:id="stackPaneData" layoutX="78.0" layoutY="36.0" prefHeight="363.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <CheckBox fx:id="checkAllowEmptyUploading" layoutX="24.0" layoutY="51.0" mnemonicParsing="false" text="Allow uploading of incomplete forms to database" />
+                        <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="390.0" layoutY="53.0" onMouseClicked="#aboutUploadingForms" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/question.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="390.0" layoutY="151.0" onMouseClicked="#aboutDeleteAllData" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/question.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

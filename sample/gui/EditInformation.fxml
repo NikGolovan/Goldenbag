@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.core.edit.EditInformationController">
+   <children>
+      <JFXTabPane layoutX="227.0" layoutY="151.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/certains-tabs-style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab style="-fx-pref-width: 380;" text="EDIT INFORMATION">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="txtId" layoutX="14.0" layoutY="34.0" prefHeight="26.0" prefWidth="361.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtFirstname" layoutX="14.0" layoutY="93.0" prefHeight="26.0" prefWidth="361.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtLastname" layoutX="14.0" layoutY="150.0" prefHeight="26.0" prefWidth="361.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtCompanyName" layoutX="14.0" layoutY="212.0" prefHeight="26.0" prefWidth="361.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtEmailAddress" layoutX="14.0" layoutY="269.0" prefHeight="26.0" prefWidth="361.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXDatePicker fx:id="dateField" layoutX="14.0" layoutY="335.0" />
+                        <JFXButton fx:id="btnDiscard" layoutX="105.0" layoutY="528.0" onAction="#discard" prefHeight="40.0" prefWidth="76.0" stylesheets="@../css/theme.css" text="Discard" />
+                        <JFXButton fx:id="btnConfirm" layoutX="230.0" layoutY="528.0" onAction="#saveChanges" prefHeight="40.0" prefWidth="81.0" stylesheets="@../css/theme.css" text="Confirm" />
+                        <JFXButton layoutX="257.0" layoutY="331.0" onAction="#setCurrentDate" prefHeight="40.0" prefWidth="71.0" stylesheets="@../css/theme.css" text="Today" />
+                        <Label layoutX="14.0" layoutY="24.0" text="ID" />
+                        <Label layoutX="14.0" layoutY="83.0" text="First name" />
+                        <Label layoutX="14.0" layoutY="140.0" text="Last name" />
+                        <Label layoutX="14.0" layoutY="202.0" text="Company name" />
+                        <Label layoutX="14.0" layoutY="259.0" text="Email address" />
+                        <JFXTextField fx:id="txtAmountEdit" layoutX="14.0" layoutY="401.0" onMouseClicked="#focusAll" prefHeight="37.0" prefWidth="174.0" text="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                        <Label layoutX="14.0" layoutY="380.0" text="Amount" />
+                        <Label fx:id="lblCurrency" layoutX="195.0" layoutY="409.0" prefHeight="31.0" prefWidth="37.0" text="EUR" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>
